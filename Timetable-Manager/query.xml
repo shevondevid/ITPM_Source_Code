@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE XML>
+
+<Querys>
+    <query id="create_database">
+        <![CDATA[
+            CREATE DATABASE timetablemanagement
+        ]]>
+    </query>
+    
+            
+     <query id="create_year_and_semester_table">
+        <![CDATA[
+            create table academic_year_and_semester(
+                id int AUTO_INCREMENT,
+                yNs String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_year_and_semester">
+        <![CDATA[
+            INSERT INTO academic_year_and_semester (yNs) VALUES (?)
+        ]]>
+    </query> 
+    
+    <query id="get_year_and_semester">
+        <![CDATA[
+            SELECT * FROM academic_year_and_semester
+        ]]>
+    </query> 
+    
+    <query id="create_degree_program_table">
+        <![CDATA[
+            create table degree_program(
+                id int AUTO_INCREMENT,
+                dp String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_degree_program">
+        <![CDATA[
+            INSERT INTO degree_program (dp) VALUES (?)
+        ]]>
+    </query>
+
+    
+    <query id="create_group_number_table">
+        <![CDATA[
+            create table group_number(
+                id int AUTO_INCREMENT,
+                gNo int,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_group_number">
+        <![CDATA[
+            INSERT INTO group_number (gNo) VALUES (?)
+        ]]>
+    </query>
+    
+    <query id="generated_group_id_table">
+        <![CDATA[
+            create table generated_group_id(
+                id int AUTO_INCREMENT,
+                gId String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_generated_group_id">
+        <![CDATA[
+            INSERT INTO generated_group_id (gId,yNsId, dpId, gnoId) VALUES (?,?,?,?)
+        ]]>
+    </query>
+    
+    <query id="Get_generated_group_id">
+        <![CDATA[
+            SELECT * FROM generated_group_id
+        ]]>
+    </query>
+    
+            
+    <query id="create_sub_group_number_table">
+        <![CDATA[
+            create table sub_group_number(
+                id int AUTO_INCREMENT,
+                sGno String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sub_group_number">
+        <![CDATA[
+            INSERT INTO sub_group_number (sGno) VALUES (?)
+        ]]>
+    </query>
+    
+    <query id="generated_sub_group_id_table">
+        <![CDATA[
+            create generated_sub_group_id(
+                id int AUTO_INCREMENT,
+                sGid String,
+                sGno String,
+                gId String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_generated_sub_group_id">
+        <![CDATA[
+            INSERT INTO generated_sub_group_id (sGid,sGno, gId) VALUES (?,?,?)
+        ]]>
+    </query>
+    
+    <query id="Get_generated_sub_group_id">
+        <![CDATA[
+            SELECT * FROM generated_sub_group_id
+        ]]>
+    </query>
+    
+    <query id="create_tag_table">
+        <![CDATA[
+            create table tag(
+                id int AUTO_INCREMENT,
+                tag String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_tag">
+        <![CDATA[
+            INSERT INTO tag (tag) VALUES (?)
+        ]]>
+    </query>
+    
+    <query id="get_tag">
+        <![CDATA[
+            SELECT * FROM tag
+        ]]>
+    </query>
+    
+    <query id="create_all_details_table">
+        <![CDATA[
+            create table all_details(
+                id int AUTO_INCREMENT,
+                yNs String,
+                dp String,
+                gNo String,
+                gId String,
+                sGid String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_all_details">
+        <![CDATA[
+            INSERT INTO all_details (yNs,dp,gNo,gId,sGid) VALUES (?,?,?,?,?)
+        ]]>
+    </query> 
+    
+    <!---allocation Time & session modify-->
+    
+    <query id="create_sp2_group_wise_table">
+        <![CDATA[
+            create table sp2_group_wise(
+                id int AUTO_INCREMENT,
+                gId String,
+                day String,
+                time_from String,
+                time_to String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_group_wise">
+        <![CDATA[
+            INSERT INTO sp2_group_wise (gId,day,time_from,time_to) VALUES (?,?,?,?)
+        ]]>
+    </query> 
+    
+    
+    
+    <query id="create_sp2_sub_group_wise_table">
+        <![CDATA[
+            create table sp2_sub_group_wise(
+                id int AUTO_INCREMENT,
+                sGid String,
+                day String,
+                time_from String,
+                time_to String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_sub_group_wise_table">
+        <![CDATA[
+            INSERT INTO sp2_sub_group_wise (sGid,day,time_from,time_to) VALUES (?,?,?,?)
+        ]]>
+    </query> 
+    
+    
+    
+    <query id="create_sp2_lecturers_wise_table">
+        <![CDATA[
+            create table sp2_lecturers_wise(
+                id int AUTO_INCREMENT,
+                lecName String,
+                lecId String,
+                day String,
+                time_from String,
+                time_to String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_lecturers_wise_table">
+        <![CDATA[
+            INSERT INTO sp2_lecturers_wise(lecName,lecId,day,time_from,time_to) VALUES (?,?,?,?,?)
+        ]]>
+    </query> 
+    
+    <query id="create_sp2_session_wise_table">
+        <![CDATA[
+            create table sp2_session_wise(
+                id int AUTO_INCREMENT,
+                session String,
+                day String,
+                time_from String,
+                time_to String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_session_wise_table">
+        <![CDATA[
+            INSERT INTO sp2_session_wise(session,day,time_from,time_to) VALUES (?,?,?,?)
+        ]]>
+    </query> 
+    
+    <query id="create_sp2_consecutive_session_table">
+        <![CDATA[
+            create table sp2_consecutive_session(
+                id int AUTO_INCREMENT,
+                sGid String,
+                cSession String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_consecutive_session_table">
+        <![CDATA[
+            INSERT INTO sp2_consecutive_session(sGid,cSession,sessionID) VALUES (?,?,?)
+        ]]>
+    </query> 
+    
+    
+    <query id="create_sp2_parallel_session_table">
+        <![CDATA[
+            create table sp2_parallel_session(
+                id int AUTO_INCREMENT,
+                yNs String,
+                session String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_sp2_parallel_session_table">
+        <![CDATA[
+            INSERT INTO sp2_parallel_session(yNs,session,sessionID) VALUES (?,?,?)
+        ]]>
+    </query> 
+    
+    <query id="Insert_workingdays_and_hours">
+        <![CDATA[
+            INSERT INTO work_day_hour (id, days_no, days, hour, mins, slot_type)VALUES (?, ?, ?, ?, ?, ?)
+        ]]>
+    </query>
+    
+    <query id="Insert_WE_workingdays_and_hours_days">
+        <![CDATA[
+            INSERT INTO work_day_hour_days (parentID, day)VALUES ((select id from work_day_hour where id = 2), ?)
+        ]]>
+    </query>
+    
+    <query id="Insert_WD_workingdays_and_hours_days">
+        <![CDATA[
+            INSERT INTO work_day_hour_days ( parentID, day)VALUES ((select id from work_day_hour where id = 1), ?)
+        ]]>
+    </query>
+    
+    <query id="Remove_workingdays_and_hours">
+        <![CDATA[
+            DELETE FROM work_day_hour
+            WHERE id = ?
+        ]]>
+    </query>
+    
+    <query id="Remove_workingdays_and_hours_days">
+        <![CDATA[
+            DELETE FROM work_day_hour_days
+            WHERE parentID = ?
+        ]]>
+    </query>
+    
+    <query id="Get_workingdays_and_hours">
+        <![CDATA[
+            SELECT *
+            FROM work_day_hour
+          ]]>
+    </query>
+    
+    <query id="Get_workingdays_and_hours_by_type">
+        <![CDATA[
+            SELECT *
+            FROM work_day_hour
+            WHERE id = ?
+        ]]>
+    </query>
+    
+
+    <query id="get_buildings">
+        <![CDATA[
+            SELECT * FROM building
+        ]]>
+    </query>
+    
+    <query id="get_faculty">
+        <![CDATA[
+            SELECT name FROM faculty
+        ]]>
+    </query>
+    
+    <query id="get_level">
+        <![CDATA[
+            SELECT name FROM level
+        ]]>
+    </query>
+    
+    <query id="get_department">
+        <![CDATA[
+            SELECT name 
+            FROM department 
+            WHERE faculty =?
+        ]]>
+    </query>
+    
+    <query id="get_center">
+        <![CDATA[
+            SELECT name FROM center
+        ]]>
+    </query>
+    
+    <query id="insert_lecturer">
+        <![CDATA[
+            INSERT INTO lecturer (name,emp_id,faculty,department,center,building,level,rank)VALUES(?,?,?,?,?,?,?,?)
+        ]]>
+    </query>
+    
+    <query id="get_lecturer">
+        <![CDATA[
+            SELECT * FROM lecturer
+        ]]>
+    </query>
+    
+    <query id="delete_lecturer">
+        <![CDATA[
+            DELETE FROM lecturer
+            WHERE id = ?
+        ]]>
+    </query>
+    
+    <query id="update_lecturer">
+        <![CDATA[
+            UPDATE lecturer
+                set name = ?,
+                emp_id = ?,
+                faculty = ?,
+                department = ?,
+                center = ?,
+                building = ?,
+                level = ?,
+                rank = ?
+            
+            where id = ?
+       ]]>
+    </query>
+    
+    <query id="insert_subject">
+        <![CDATA[
+            INSERT INTO 
+                subject (offered_year, offered_semester, subject_name, subject_code, lec_hr, tute_hr, lab_hr, eva_hr)
+                values(?,?,?,?,?,?,?,?)
+		]]>
+    </query>
+	
+    <query id="create_room_table">
+        <![CDATA[
+            create table room(
+                id int ,
+                type String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_room">
+        <![CDATA[
+            INSERT INTO room VALUES (?,?)
+        ]]>
+    </query>
+    
+    
+    <query id="create_building_table">
+        <![CDATA[
+            create table building(
+                id int ,
+                name String,
+                
+                Constraint pk1 PRIMARY KEY (id)
+            )
+        ]]>
+    </query>
+    
+    <query id="Insert_building">
+        <![CDATA[
+            INSERT INTO building VALUES (?,?)
+        ]]>
+    </query>
+
+    <query id="get_subjects">
+        <![CDATA[
+            SELECT * FROM subject
+        ]]>
+    </query>
+    
+    <query id="delete_subject">
+        <![CDATA[
+            DELETE FROM subject
+            WHERE id = ?
+        ]]>
+    </query>
+    
+    <query id="update_subject">
+        <![CDATA[
+            UPDATE subject
+                set offered_year = ?,
+                offered_semester = ?,
+                subject_name = ?,
+                subject_code = ?,
+                lec_hr = ?,
+                tute_hr = ?,
+                lab_hr = ?,
+                eva_hr = ?
+            
+            where id = ?
+       ]]>
+    </query>
+    
+    <query id="insert_session">
+        <![CDATA[
+            INSERT INTO session (subject, sub_code, tag, tag_duration, group_id, subgroup_id, stu_count)
+            VALUES (?,?,?,?,?,?,?)
+        ]]>
+    </query>
+    
+    <query id="get_session">
+        <![CDATA[
+            SELECT * FROM session
+        ]]>
+    </query>
+    
+     <query id="get_session_by_sessionID">
+        <![CDATA[
+            SELECT * FROM session
+            WHERE id = ?
+        ]]>
+    </query>
+    
+    <query id="get_session_by_groupID">
+        <![CDATA[
+            SELECT * FROM session
+            WHERE group_id = ?
+        ]]>
+    </query>
+    
+    <query id="get_session_by_subgroupID">
+        <![CDATA[
+            SELECT * FROM session
+            WHERE subgroup_id = ?
+        ]]>
+    </query>
+    
+    <query id="get_session_by_subjectcode">
+        <![CDATA[
+            SELECT * FROM session
+            WHERE sub_code = ?
+        ]]>
+    </query>
+    
+    <query id="get_session_by_lecture">
+        <![CDATA[
+            SELECT session_id FROM session_lec
+            WHERE lec_id = ?
+        ]]>
+    </query>
+    
+    <query id="get_session_ID">
+        <![CDATA[
+            SELECT MAX(s.id)'max'
+            FROM session s
+        ]]>
+    </query>
+    
+    <query id="delete_session">
+        <![CDATA[
+            DELETE FROM session
+            WHERE id = ?
+        ]]>
+    </query>
+    
+    <query id="insert_session_lec">
+        <![CDATA[
+            INSERT INTO session_lec (session_id,lec_id)
+            VALUES (?,?)
+        ]]>
+    </query>
+    
+    <query id="get_session_lec">
+        <![CDATA[
+            SELECT * FROM session_lec
+        ]]>
+    </query>
+    
+    <query id="get_session_lec_by_id">
+        <![CDATA[
+            SELECT lec_id FROM session_lec
+            WHERE session_id = ?
+        ]]>
+    </query>
+    
+    <query id="delete_session_lec">
+        <![CDATA[
+            DELETE FROM session_lec
+            WHERE session_id = ?
+        ]]>
+    </query>
+</Querys>

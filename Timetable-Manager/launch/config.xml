@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Tiran Harsha\Documents\NetBeansProjects\Timetable-Manager\dist\TimetableManagement.jar</jar>
+  <outfile>C:\Users\Tiran Harsha\Documents\NetBeansProjects\Timetable-Manager\dist\TimetableManagement.exe</outfile>
+  <errTitle>Please install java first</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>F:\POS\unicentaopos-3.01\unicentaopos.ico</icon>
+  <singleInstance>
+    <mutexName>TimetableGenerater</mutexName>
+    <windowTitle>Timetable Generater</windowTitle>
+  </singleInstance>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.7.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Timetable manager</fileDescription>
+    <copyright>NIL</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>TimetableGenerater</productName>
+    <companyName>Team Abhiru</companyName>
+    <internalName>TimetableGenerater</internalName>
+    <originalFilename>TimetableGenerater.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
